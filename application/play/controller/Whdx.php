@@ -27,8 +27,8 @@ class Whdx
     {
         header("content-type:image/jpeg");
         $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "装B高手");
-        $name2 = $req->get('name2', "装B高手");
+        $name1 = $req->get('name1', "法学院");
+        $name2 = $req->get('name2', "植物学");
         $name1 = $name1." ".$name2;
         $im = imagecreatetruecolor(1200, 900);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/whdx/main.jpg');

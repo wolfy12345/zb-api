@@ -118,11 +118,11 @@ class Zuliggj
 
         imagettftext($im, 19, 1, 480, 450, $black, $font, $contents[0]);
         imagettftext($im, 19, 1, 480, 480, $black, $font, $contents[1]);
-        imagettftext($im, 19, 1, 500, 510, $black, $font, $contents[2]);
+        imagettftext($im, 19, 1, 505, 510, $black, $font, $contents[2]);
         imagettftext($im, 19, 1, 480, 540, $black, $font, $contents[3]);
-        imagettftext($im, 19, 1, 480, 570, $black, $font, $contents[4]);
-        imagettftext($im, 19, 1, 480, 600, $black, $font, $contents[5]);
-        imagettftext($im, 19, 1, 480, 630, $black, $font, $contents[6]);
+        imagettftext($im, 19, 1, 460, 570, $black, $font, $contents[4]);
+        imagettftext($im, 19, 1, 460, 600, $black, $font, $contents[5]);
+        imagettftext($im, 19, 1, 460, 630, $black, $font, $contents[6]);
 
         imagettftext($im, 19, 1, 490, 660, $black, $font, '价格根据年龄长相面议，适当情况可倒贴');
         imagettftext($im, 19, 1, 491, 660, $black, $font, '价格根据年龄长相面议，适当情况可倒贴');
@@ -133,7 +133,7 @@ class Zuliggj
         $white = imagecolorallocate($im1 , 223 , 223 , 223);
         imagecolortransparent($im1 , $white ) ;
         imagefill($im1 , 780, 350 , $white);
-        imagecopy($im, $im1, 780, 350, 0, 0, 160, 160);
+        imagecopy($im, $im1, 780, 312, 0, 0, 160, 160);
 
         imagejpeg($im);
         imagedestroy($im);

@@ -37,8 +37,8 @@ class Zsdx
         $text = $name;
         $font = IA_ROOT.'/static/fonts/fzlsjt.ttf';
         $name3 = "二零一六年二月二十二号";
-        imagettftext($im, 9, 0, 69, 116, $black, $font, $text);
-        imagettftext($im, 9, 0, 65, 450, $black, $font, $name);
+        imagettftext($im, 9, 0, 60, 116, $black, $font, $text);
+        imagettftext($im, 9, 0, 55, 450, $black, $font, $name);
         imagettftext($im, 9, 0, 240, 235, $black1, $font, $name3);
         imagejpeg($im);
         imagedestroy($im);

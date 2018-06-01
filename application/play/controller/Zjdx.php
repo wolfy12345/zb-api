@@ -39,7 +39,7 @@ class Zjdx
         $font = IA_ROOT.'/static/fonts/fzlsjt.ttf';
         $name2 = "2018";
     
-        imagettftext($im, 13, 0, 75, 378, $black, $font, $text);
+        imagettftext($im, 13, 0, 70, 378, $black, $font, $text);
         imagettftext($im, 13, 0, 250, 653, $black, $font, $name1);
         imagettftext($im, 13, 0, 325, 405, $black, $font, $name2);
         imagejpeg($im);
