@@ -29,7 +29,8 @@ class Chifan
     {
         header("content-type:image/jpeg");
         $name = $req->get('name', "装B高手");
-        $num = $req->get('num', 1);
+//        $num = $req->get('num', 1);
+        $num = rand(1, 14);
         $im = imagecreatetruecolor(750, 1000);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/chifan/'.$num.'.jpg');
         imagecopy($im,$bg,0,0,0,0,750,1000);
