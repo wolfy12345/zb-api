@@ -30,10 +30,10 @@ class Zongjie
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "装B高手");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "装B高手");
         $sex = ($name1 == '男') ? 'a' : 'b';
-        $num = $req->get('num', "1");
+        $num = rand(1, 8);
         $im = imagecreatetruecolor(600, 800);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/zongjie/'.$sex.$num.'.jpg');
         imagecopy($im,$bg,0,0,0,0,600,800);

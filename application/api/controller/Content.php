@@ -17,9 +17,9 @@ class Content extends Controller
 
         $zbContent = new ZbContent();
         if ($catId == 0) {
-            $list = $zbContent->field("content_id, title, img_icon, content, name")->where('disabled', 'false')->order('p_order ' . SORT_ASC)->paginate($this->pageSize);
+            $list = $zbContent->field("content_id, title, img_icon, content, name, page_type")->where('disabled', 'false')->order('p_order ' . SORT_ASC)->paginate($this->pageSize);
         } else {
-            $list = $zbContent->field("content_id, title, img_icon, content, name")->where('disabled', 'false')->where('cat_id', $catId)->order('p_order ' . SORT_ASC)->paginate($this->pageSize);
+            $list = $zbContent->field("content_id, title, img_icon, content, name, page_type")->where('disabled', 'false')->where('cat_id', $catId)->order('p_order ' . SORT_ASC)->paginate($this->pageSize);
         }
         $list->each(function ($item) use ($img_url) {
             $item->img_icon = $img_url . $item->img_icon;
@@ -34,8 +34,9 @@ class Content extends Controller
         $contentId = $req->param("contentId", 0);
 
         $zbContent = new ZbContent();
-        $detail = $zbContent->field("content_id, title, name, img_icon, content")->where('content_id', $contentId)->find();
+        $detail = $zbContent->field("content_id, title, name, img_icon, img_example, content, page_type, input_list")->where('content_id', $contentId)->find();
         $detail['img_icon'] = $img_url . $detail['img_icon'];
+        $detail['img_example'] = !empty($detail['img_example']) ? $img_url . $detail['img_example'] : '';
 
         return json(['data' => ['detail' => $detail], 'code' => 200]);
     }
