@@ -26,36 +26,37 @@ class Sydsh
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "装B高手");
-        $num = $req->get('num', "装B高手");
+        $name = $req->get('param2', "装B高手");
+        $num = $req->get('param3', "装B高手");
         $avatar = $req->get('avatar', "");
-        $sex = $req->get('select1', "男");
-        $select2 = $req->get('select2', "中国移动");
-        $type = $_GET['type'];
-        $tp = '/example/sydsh/main.jpg';
+        $sex = $req->get('param4', "男");
+        $select2 = $req->get('param5', "中国移动");
+//        $type = 2;
+        $tp = 'example/sydsh/main.jpg';
         $im = imagecreatetruecolor(1242, 2208);
-        $bg = imagecreatefromjpeg(IA_ROOT . $tp);
+        $bg = imagecreatefromjpeg($tp);
         imagecopy($im, $bg, 0, 0, 0, 0, 1242, 2208);
         imagedestroy($bg);
         $black = imagecolorallocate($im, 255, 251, 240);
         $black1 = imagecolorallocate($im, 253, 108, 4);
-        $font = IA_ROOT . '/static/fonts/msyh.ttf';
+        $font =  'static/fonts/msyh.ttf';
         imagettftext($im, 25, 0, 80, 40, $black, $font, $select2);
         imagettftext($im, 45, 0, 280, 340, $black, $font, $name);
         imagettftext($im, 22, 0, 639, 1187, $black1, $font, $num);
-        if ($type == 1) {
-            $qq = IA_ROOT.'/avatar/'.$avatar;
-        } else {
-            $qq = IA_ROOT.'/images/'.$avatar;
-        }
+//        if ($type == 1) {
+//            $qq = IA_ROOT.'/avatar/'.$avatar;
+//        } else {
+//            $qq = IA_ROOT.'/images/'.$avatar;
+//        }
+        $qq = 'uploads/user/'.$avatar;
         $this->getyuan($qq,$avatar);
-        $tt = IA_ROOT.'/images/yuan'.$avatar;
+        $tt = 'uploads/user/yuan'.$avatar;
         $change = $this->change($tt);
         imagecopymerge($im, $change, 35, 221, 0, 0, 177, 177, 100);
         if($sex == '男'){
-             $img_l_t = imagecreatefrompng(IA_ROOT.'/example/sydsh/11.png');
+             $img_l_t = imagecreatefrompng('example/sydsh/11.png');
         }else{
-             $img_l_t = imagecreatefrompng(IA_ROOT.'/example/sydsh/22.png');
+             $img_l_t = imagecreatefrompng('example/sydsh/22.png');
         }     
         $white = imagecolorallocate($img_l_t , 255 , 255 , 255);
         imagecolortransparent($img_l_t , $white ) ;
@@ -65,7 +66,7 @@ class Sydsh
         imagecopy($im, $img_l_t, 2, 210, 0, 0, 234, 234);
 
         #二维码
-        $im1 = imagecreatefromstring(file_get_contents(IA_ROOT.'/static/qrcode/zbgs008_160_bai.png'));
+        $im1 = imagecreatefromstring(file_get_contents('static/qrcode/zbgs008_160_bai.png'));
         $white = imagecolorallocate($im1 , 255 , 255 , 255);
         imagecolortransparent($im1 , $white ) ;
         imagefill($im1 , 100, 320 , $white);
@@ -118,7 +119,7 @@ class Sydsh
                 }
             }
         }
-        imagejpeg($img,IA_ROOT.'/images/yuan'.$avatar);
+        imagejpeg($img,'uploads/user/yuan'.$avatar);
        // return $img;
     }
 

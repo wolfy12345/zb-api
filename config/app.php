@@ -15,6 +15,7 @@
 
 return [
     'img_host' => 'http://admin.zb.com/uploads/',
+    'user_img_host' => 'http://api.zb.com/uploads/user/',
     
     // 应用名称
     'app_name'               => '',
