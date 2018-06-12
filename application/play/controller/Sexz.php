@@ -26,9 +26,9 @@ class Sexz
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('param1', "装B高手");
+        $name = $req->get('param2', "装B高手");
         $avatar = $req->get('avatar', "");
-        $name1 = $req->get('param2', "0508");
+        $name1 = $req->get('param3', "0508");
         $type = 2;
         $arr = $this->ch2arr($name1);
         $mm = $arr[0].$arr[1];

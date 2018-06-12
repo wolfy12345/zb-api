@@ -26,7 +26,7 @@ class Guanjianci
    public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('param1', "装B高手");
+        $name = $req->get('param2', "装B高手");
         $avatar = $req->get('avatar', "");
         $type = 2;
         $num =rand(1,65);
