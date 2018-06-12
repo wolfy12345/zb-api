@@ -25,7 +25,7 @@ class Index extends Controller
         });
 
         $zbContent = new ZbContent();
-        $contentList = $zbContent->field("content_id, title, img_icon, content, page_type")->where('disabled', 'false')->order('p_order ' . SORT_ASC)->paginate(10);
+        $contentList = $zbContent->field("content_id, title, img_icon, content, page_type, take_num")->where('disabled', 'false')->order('p_order ' . SORT_ASC)->paginate(10);
         $contentList->each(function($item) use ($img_url) {
             $item->img_icon = $img_url . $item->img_icon;
         });
