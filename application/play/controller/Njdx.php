@@ -26,8 +26,8 @@ class Njdx
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name2 = $req->get('name2', "古汉语文学");
+        $name = $req->get('param1', "装B高手");
+        $name2 = $req->get('param2', "古汉语文学");
         $im = imagecreatetruecolor(600, 450);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/njdx/main.jpg');
         imagecopy($im,$bg,0,0,0,0,600,450);

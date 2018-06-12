@@ -26,9 +26,9 @@ class Haoshengyin
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "华北");
-        $select1 = $req->get('select1', "最佳歌手称号");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "华北");
+        $select1 = $req->get('param3', "最佳歌手称号");
         $name1 = "2017《中国好声音》".$name1."赛区";
         $im = imagecreatetruecolor(800, 534);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/haoshengyin/main.jpg');

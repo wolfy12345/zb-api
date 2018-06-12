@@ -26,8 +26,8 @@ class Keleping
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $select1 = $req->get('select1', "装B高手");
+        $name = $req->get('param1', "装B高手");
+        $select1 = $req->get('param2', "装B高手");
         $im = imagecreatetruecolor(580, 774);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/keleping/main.jpg');
         imagecopy($im,$bg,0,0,0,0,580,774);

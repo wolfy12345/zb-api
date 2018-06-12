@@ -26,10 +26,10 @@ class Zuli
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "装B高手");
-        $weixin = $req->get('weixin', "装B君");
+        $name = $req->get('param1', "装B高手");
+        $weixin = $req->get('param2', "装B君");
         $avatar = $req->get('avatar', "");
-        $type = $req->get('select1', "屌丝10块版");
+        $type = $req->get('param3', "屌丝10块版");
 
         switch ($type)
         {

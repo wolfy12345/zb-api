@@ -28,8 +28,8 @@ class Danshen
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "神笔记");
-        $sex = $req->get('sex', "我是男生");
+        $name = $req->get('param1', "神笔记");
+        $sex = $req->get('param2', "我是男生");
         $im = imagecreatetruecolor(480, 480);
 
         #背景

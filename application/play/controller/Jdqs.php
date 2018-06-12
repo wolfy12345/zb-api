@@ -26,8 +26,8 @@ class Jdqs
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $select1 = $req->get('select1', "装B高手");
+        $name = $req->get('param1', "装B高手");
+        $select1 = $req->get('param2', "装B高手");
         if($select1 == '单排'){
             $bg = imagecreatefromjpeg(IA_ROOT.'/example/jdqs/1.jpg');
         }else{

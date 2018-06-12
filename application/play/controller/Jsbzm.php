@@ -25,9 +25,9 @@ class Jsbzm
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "小二");
-        $age = $req->get('age', "25");
-        $b = $req->get('select1', "男");
+        $name = $req->get('param1', "小二");
+        $age = $req->get('param2', "25");
+        $b = $req->get('param3', "男");
         $im = imagecreatetruecolor(1000, 1333);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/jsbzm/33.jpg');
         $black = imagecolorallocate($im, 55, 55, 55);

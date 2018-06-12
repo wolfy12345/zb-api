@@ -28,8 +28,8 @@ class Cuikuan
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "神笔记");
-        $name1 = $req->get('name1', "神笔记");
+        $name = $req->get('param1', "神笔记");
+        $name1 = $req->get('param2', "神笔记");
         $name1 = $name1.'元';
         $im = imagecreatetruecolor(702, 830);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/cuikuan/main.jpg');

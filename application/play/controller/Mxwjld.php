@@ -25,9 +25,9 @@ class Mxwjld
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "高手");
-        $mxname =$req->get('mxname', "热巴");
-        $b = $req->get('select1', "，我睡不着，想你了");
+        $name = $req->get('param1', "高手");
+        $mxname =$req->get('param2', "热巴");
+        $b = $req->get('param3', "，我睡不着，想你了");
         $im = imagecreatetruecolor(720, 1280);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/mxwjld/33.jpg');
         $black = imagecolorallocate($im, 55, 55, 55);

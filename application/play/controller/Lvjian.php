@@ -26,8 +26,8 @@ class Lvjian
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $select1 = $req->get('select1', "情人节快乐");
+        $name = $req->get('param1', "装B高手");
+        $select1 = $req->get('param2', "情人节快乐");
         $im = imagecreatetruecolor(900, 1200);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/lvjian/main.jpg');
         imagecopy($im,$bg,0,0,0,0,900,1200);

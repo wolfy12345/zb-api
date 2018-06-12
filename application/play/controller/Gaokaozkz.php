@@ -26,10 +26,10 @@ class Gaokaozkz
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name2 = $req->get('name2', "装B高手");
-        $select1 = $req->get('select1', "理科综合");
-        $select2 = $req->get('select2', "男");
+        $name = $req->get('param1', "装B高手");
+        $name2 = $req->get('param2', "装B高手");
+        $select1 = $req->get('param3', "理科综合");
+        $select2 = $req->get('param4', "男");
         $im = imagecreatetruecolor(703, 1081);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/gaokaozkz/main.jpg');
         imagecopy($im,$bg,0,0,0,0,703,1081);

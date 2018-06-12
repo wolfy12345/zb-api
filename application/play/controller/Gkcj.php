@@ -26,11 +26,11 @@ class Gkcj
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "133");
-        $name2 = $req->get('name2', "147");
-        $name3 = $req->get('name3', "143");
-        $name4 = $req->get('name4', "296");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "133");
+        $name2 = $req->get('param3', "147");
+        $name3 = $req->get('param4', "143");
+        $name4 = $req->get('param5', "296");
         $im = imagecreatetruecolor(945, 1260);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/gkcj/main.jpg');
         imagecopy($im,$bg,0,0,0,0,945,1260);

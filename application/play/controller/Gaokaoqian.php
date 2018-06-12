@@ -27,9 +27,9 @@ class Gaokaoqian
     {
         header("content-type:image/jpeg");
         $name = $req->get('name', "装B高手");
-        $select1 = $req->get('select1', "装B高手");
-        $select2 = $req->get('select2', "装B高手");
-        $select3 = $req->get('select3', "装B高手");
+        $select1 = $req->get('param1', "装B高手");
+        $select2 = $req->get('param2', "装B高手");
+        $select3 = $req->get('param3', "装B高手");
         $im = imagecreatetruecolor(720, 1280);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/gaokaoqian/main.jpg');
         imagecopy($im,$bg,0,0,0,0,720,1280);

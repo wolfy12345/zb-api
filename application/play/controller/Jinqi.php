@@ -26,9 +26,9 @@ class Jinqi
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $select1 = $req->get('select1', "好老公");
-        $name1 = $req->get('name1', "妇联");
+        $name = $req->get('param1', "装B高手");
+        $select1 = $req->get('param2', "好老公");
+        $name1 = $req->get('param3', "妇联");
         $im = imagecreatetruecolor(676, 900);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/jinqi/main.jpg');
         imagecopy($im,$bg,0,0,0,0,676,900);

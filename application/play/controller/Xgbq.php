@@ -26,10 +26,10 @@ class Xgbq
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
+        $name = $req->get('param1', "装B高手");
         $im = imagecreatetruecolor(600, 710);
         
-        $name1 = $req->get('name1', "装B高手");
+        $name1 = $req->get('param2', "0505");
         $arr = $this->ch2arr($name1);
         $mm = $arr[0].$arr[1];
         $dd = $arr[2].$arr[3];

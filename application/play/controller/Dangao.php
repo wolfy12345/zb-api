@@ -28,8 +28,8 @@ class Dangao
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "神笔记");
-        $select1 = $req->get('select1', "情人节");
+        $name = $req->get('param1', "神笔记");
+        $select1 = $req->get('param2', "情人节");
         $im = imagecreatetruecolor(442, 626);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/dangao/main.jpg');
         imagecopy($im,$bg,0,0,0,0,442,626);

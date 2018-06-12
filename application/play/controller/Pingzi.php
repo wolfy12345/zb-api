@@ -26,8 +26,8 @@ class Pingzi
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B君");
-        $select1 = $req->get('select1', "好想你");
+        $name = $req->get('param1', "装B君");
+        $select1 = $req->get('param2', "好想你");
         $im = imagecreatetruecolor(580, 774);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/pingzi/main.jpg');
         imagecopy($im,$bg,0,0,0,0,580,774);

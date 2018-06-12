@@ -28,9 +28,9 @@ class Baozhengshu
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name2 = $req->get('name2', "装B高手");
-        $select1 = $req->get('select1', "老公保证书");
+        $name = $req->get('param1', "装B高手");
+        $name2 = $req->get('param2', "装B高手");
+        $select1 = $req->get('param3', "老公保证书");
         $im = imagecreatetruecolor(856, 1200);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/baozhengshu/main.jpg');
         imagecopy($im,$bg,0,0,0,0,856,1200);

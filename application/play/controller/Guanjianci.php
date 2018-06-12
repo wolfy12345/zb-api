@@ -26,9 +26,9 @@ class Guanjianci
    public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "装B高手");
+        $name = $req->get('param1', "装B高手");
         $avatar = $req->get('avatar', "");
-        $type = $req->get('type');
+        $type = 2;
         $num =rand(1,65);
         $tp = '/example/guanjianci/'.$num.'.jpg';
         $img_l_t = imagecreatefrompng(IA_ROOT.'/example/guanjianci/'.$num.'.png');

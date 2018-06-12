@@ -28,8 +28,8 @@ class Biyeji
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "装B高手");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "装B高手");
        
         $im = imagecreatetruecolor(1440, 1280);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/biyeji/main.jpg');

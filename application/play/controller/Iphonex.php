@@ -25,8 +25,8 @@ class Iphonex
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "装B高手");
-        $b = $req->get('select1', "2.jpeg");
+        $name = $req->get('param1', "装B高手");
+        $b = $req->get('param2', "2.jpeg");
         $im = imagecreatetruecolor(750, 1334);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/iphonex/main.jpg');
         imagecopy($im,$bg,0,0,0,0,750,1334);

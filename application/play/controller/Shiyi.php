@@ -26,10 +26,10 @@ class Shiyi
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "装B高手");
+        $name = $req->get('param1', "装B高手");
         $avatar = $req->get('avatar', "");
-        $select1 = $req->get('select1', "男");
-        $type = $req->get('type');
+        $select1 = $req->get('param2', "男");
+        $type = 2;
         $sex = ($select1=='男') ? 'a': 'b';
         $ss = rand(1,21);
         $tp = '/example/shiyi/'.$sex.$ss.'.jpg';

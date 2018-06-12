@@ -27,8 +27,8 @@ class Caomei
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $select1 = $req->get('select1', "情人节快乐");
+        $name = $req->get('param1', "装B高手");
+        $select1 = $req->get('param2', "情人节快乐");
         $im = imagecreatetruecolor(960, 1280);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/caomei/main.jpg');
         imagecopy($im,$bg,0,0,0,0,960,1280);

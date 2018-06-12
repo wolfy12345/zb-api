@@ -25,8 +25,8 @@ class Rscjd
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "马大哈");
-        $id = $req->get('select1', "1");
+        $name = $req->get('param1', "马大哈");
+        $id = $req->get('param2', "男");
         $tt = ($id=='男' ?'a':'b').rand(1,7).'.jpg';
         $img1 = IA_ROOT.'/example/rscjd/'.$tt;
         $im = imagecreatetruecolor(800, 1300);

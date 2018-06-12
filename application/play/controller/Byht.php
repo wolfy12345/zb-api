@@ -28,8 +28,8 @@ class Byht
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "50000");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "50000");
         $name1 =  $name1.'元/月';
         $im = imagecreatetruecolor(960, 933);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/byht/main.jpg');

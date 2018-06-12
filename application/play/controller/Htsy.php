@@ -27,7 +27,6 @@ class Htsy
     {
         header("content-type:image/jpeg");
         $name = $req->get('name', "装B高手");
-    
 
         $im = imagecreatetruecolor(720, 960);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/htsy/main.jpg');

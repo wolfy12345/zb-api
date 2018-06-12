@@ -26,10 +26,10 @@ class Yxq
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
+        $name = $req->get('param1', "装B高手");
         $name = $name.'：';
-        $name1 = $req->get('name1', "装B高手");
-        $select1 = $req->get('select1', "装B高手");
+        $name1 = $req->get('param2', "装B高手");
+        $select1 = $req->get('param3', "装B高手");
         $im = imagecreatetruecolor(800, 924);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/yxq/main.jpg');
         imagecopy($im,$bg,0,0,0,0,800,924);

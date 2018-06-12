@@ -26,9 +26,9 @@ class Hzkjdx
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "文学院");
-        $name2 = $req->get('name2', "挖掘机修理");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "文学院");
+        $name2 = $req->get('param3', "挖掘机修理");
         $im = imagecreatetruecolor(791, 523);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/hzkjdx/main.jpg');
         imagecopy($im,$bg,0,0,0,0,791,523);

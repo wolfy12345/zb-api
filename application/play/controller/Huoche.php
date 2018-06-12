@@ -26,12 +26,12 @@ class Huoche
     public function image(Request $req)
     {
             header("content-type:image/jpeg");
-            $qidian = $req->get('qidian', "装B高手");
-            $zhongdian = $req->get('zhongdian', "装B高手");
-            $checi = $req->get('checi', "装B高手");
-            $jiage = $req->get('jiage', "装B高手");
-            $name = $req->get('name', "装B高手");
-            $shenfen = $req->get('shenfen', "装B高手");
+            $qidian = $req->get('param1', "北京南");
+            $zhongdian = $req->get('param2', "杭州东");
+            $checi = $req->get('param3', "G110");
+            $jiage = $req->get('param4', "456");
+            $name = $req->get('param5', "装B高手");
+            $shenfen = $req->get('param6', "130130xxxxxxxx1234");
             $im = imagecreatetruecolor(379, 234);
             $bg = imagecreatefromjpeg(IA_ROOT.'/example/huoche/main.jpg');
             imagecopy($im,$bg,0,0,0,0,379,234);

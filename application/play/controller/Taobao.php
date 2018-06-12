@@ -26,11 +26,11 @@ class Taobao
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('name', "高手");
+        $name = $req->get('param1', "高手");
         $avatar = $req->get('avatar', "");
-        $select1 = $req->get('select1', "高手");
-        $amount = $req->get('amount', 100);
-        $type = $req->get('type');
+        $select1 = $req->get('param2', "高手");
+        $amount = $req->get('param3', 100);
+        $type = 2;
         $name = "【全球首发限量爆款──".$name."】";
         $amount = "￥".$amount;
         $im = imagecreatetruecolor(720, 1280);

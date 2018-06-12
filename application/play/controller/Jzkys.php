@@ -26,9 +26,9 @@ class Jzkys
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $age = $req->get('age', "30");
-        $select1 = $req->get('select1', "患者总觉得自己又瘦了。");
+        $name = $req->get('param1', "装B高手");
+        $age = $req->get('param2', "30");
+        $select1 = $req->get('param3', "患者总觉得自己又瘦了。");
         $im = imagecreatetruecolor(750, 1300);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/jzkys/main.jpg');
         imagecopy($im,$bg,0,0,0,0,750,1300);

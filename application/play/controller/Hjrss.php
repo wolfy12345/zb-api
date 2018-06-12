@@ -26,9 +26,9 @@ class Hjrss
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "怂货");
-        $name1 = $req->get('name1', "碉堡君");
-        $name2 = $req->get('name2', "600");
+        $name = $req->get('param1', "怂货");
+        $name1 = $req->get('param2', "碉堡君");
+        $name2 = $req->get('param3', "600");
         $im = imagecreatetruecolor(640, 858);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/hjrss/main.jpg');
         imagecopy($im,$bg,0,0,0,0,640,858);

@@ -26,9 +26,9 @@ class Jtdx
     public function image(Request $req)
     {
         header("content-type:image/jpeg");
-        $name = $req->get('name', "装B高手");
-        $name1 = $req->get('name1', "农学院");
-        $name2 = $req->get('name2', "影视表演");
+        $name = $req->get('param1', "装B高手");
+        $name1 = $req->get('param2', "农学院");
+        $name2 = $req->get('param3', "影视表演");
         $im = imagecreatetruecolor(700, 514);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/jtdx/main.jpg');
         imagecopy($im,$bg,0,0,0,0,700,514);

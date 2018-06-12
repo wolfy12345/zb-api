@@ -7,7 +7,9 @@
  * @version    2.0
  */
 namespace app\play\controller;
+
 use think\Request;
+
 class Sydsh
 {
     /**
@@ -27,19 +29,19 @@ class Sydsh
     {
         header("content-type:image/png");
         $name = $req->get('param2', "装B高手");
-        $num = $req->get('param3', "装B高手");
+        $num = $req->get('param3', "15");
         $avatar = $req->get('avatar', "");
         $sex = $req->get('param4', "男");
         $select2 = $req->get('param5', "中国移动");
 //        $type = 2;
-        $tp = 'example/sydsh/main.jpg';
+        $tp = IA_ROOT . '/example/sydsh/main.jpg';
         $im = imagecreatetruecolor(1242, 2208);
         $bg = imagecreatefromjpeg($tp);
         imagecopy($im, $bg, 0, 0, 0, 0, 1242, 2208);
         imagedestroy($bg);
         $black = imagecolorallocate($im, 255, 251, 240);
         $black1 = imagecolorallocate($im, 253, 108, 4);
-        $font =  'static/fonts/msyh.ttf';
+        $font = IA_ROOT . '/static/fonts/msyh.ttf';
         imagettftext($im, 25, 0, 80, 40, $black, $font, $select2);
         imagettftext($im, 45, 0, 280, 340, $black, $font, $name);
         imagettftext($im, 22, 0, 639, 1187, $black1, $font, $num);
@@ -48,35 +50,35 @@ class Sydsh
 //        } else {
 //            $qq = IA_ROOT.'/images/'.$avatar;
 //        }
-        $qq = 'uploads/user/'.$avatar;
-        $this->getyuan($qq,$avatar);
-        $tt = 'uploads/user/yuan'.$avatar;
+        $qq = IA_ROOT . '/images/' . $avatar;
+        $this->getyuan($qq, $avatar);
+        $tt = IA_ROOT . '/images/yuan' . $avatar;
         $change = $this->change($tt);
         imagecopymerge($im, $change, 35, 221, 0, 0, 177, 177, 100);
-        if($sex == '男'){
-             $img_l_t = imagecreatefrompng('example/sydsh/11.png');
-        }else{
-             $img_l_t = imagecreatefrompng('example/sydsh/22.png');
-        }     
-        $white = imagecolorallocate($img_l_t , 255 , 255 , 255);
-        imagecolortransparent($img_l_t , $white ) ;
-        imagealphablending($img_l_t , false);
-        imagefill($img_l_t , 0 , 0 , $white);
-        imagesavealpha($img_l_t , true);
+        if ($sex == '男') {
+            $img_l_t = imagecreatefrompng(IA_ROOT . '/example/sydsh/11.png');
+        } else {
+            $img_l_t = imagecreatefrompng(IA_ROOT . '/example/sydsh/22.png');
+        }
+        $white = imagecolorallocate($img_l_t, 255, 255, 255);
+        imagecolortransparent($img_l_t, $white);
+        imagealphablending($img_l_t, false);
+        imagefill($img_l_t, 0, 0, $white);
+        imagesavealpha($img_l_t, true);
         imagecopy($im, $img_l_t, 2, 210, 0, 0, 234, 234);
 
         #二维码
-        $im1 = imagecreatefromstring(file_get_contents('static/qrcode/zbgs008_160_bai.png'));
-        $white = imagecolorallocate($im1 , 255 , 255 , 255);
-        imagecolortransparent($im1 , $white ) ;
-        imagefill($im1 , 100, 320 , $white);
+        $im1 = imagecreatefromstring(file_get_contents(IA_ROOT . '/static/qrcode/zbgs008_160_bai.png'));
+        $white = imagecolorallocate($im1, 255, 255, 255);
+        imagecolortransparent($im1, $white);
+        imagefill($im1, 100, 320, $white);
         imagecopy($im, $im1, 990, 1150, 0, 0, 160, 160);
 
         imagejpeg($im);
         imagedestroy($im);
     }
 
-    public function getyuan($imgpath,$avatar)
+    public function getyuan($imgpath, $avatar)
     {
 
         /**
@@ -119,36 +121,37 @@ class Sydsh
                 }
             }
         }
-        imagejpeg($img,'uploads/user/yuan'.$avatar);
-       // return $img;
+        imagejpeg($img, IA_ROOT . '/images/yuan' . $avatar);
+        // return $img;
     }
 
-    public function change($url){
+    public function change($url)
+    {
         //图片的等比缩放
 
         //因为PHP只能对资源进行操作，所以要对需要进行缩放的图片进行拷贝，创建为新的资源
-        $src=imagecreatefromjpeg($url);
+        $src = imagecreatefromjpeg($url);
 
         //取得源图片的宽度和高度
-        $size_src=getimagesize($url);
-        $w=$size_src['0'];
-        $h=$size_src['1'];
+        $size_src = getimagesize($url);
+        $w = $size_src['0'];
+        $h = $size_src['1'];
 
         //指定缩放出来的最大的宽度（也有可能是高度）
-        $max=177;
+        $max = 177;
 
         //根据最大值为300，算出另一个边的长度，得到缩放后的图片宽度和高度
-        if($w > $h){
-            $w=$max;
-            $h=$h*($max/$size_src['0']);
-        }else{
-            $h=$max;
-            $w=$w*($max/$size_src['1']);
+        if ($w > $h) {
+            $w = $max;
+            $h = $h * ($max / $size_src['0']);
+        } else {
+            $h = $max;
+            $w = $w * ($max / $size_src['1']);
         }
 
 
         //声明一个$w宽，$h高的真彩图片资源
-        $image=imagecreatetruecolor($w, $h);
+        $image = imagecreatetruecolor($w, $h);
 
 
         //关键函数，参数（目标资源，源，目标资源的开始坐标x,y, 源资源的开始坐标x,y,目标资源的宽高w,h,源资源的宽高w,h）

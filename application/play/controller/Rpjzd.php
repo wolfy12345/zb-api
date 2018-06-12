@@ -27,7 +27,7 @@ class Rpjzd
     {
         header("content-type:image/jpeg");
         $name = $req->get('name', "装B高手");
-        $num = $req->get('num', "1");
+        $num = rand(1, 20);
         $img1 = IA_ROOT.'/example/rpjzd/'.$num.'.jpg';
         $im = imagecreatetruecolor(800, 600);
         $bg = imagecreatefromjpeg($img1);
