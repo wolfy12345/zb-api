@@ -29,7 +29,7 @@ class Zuli
         $name = $req->get('param1', "装B高手");
         $weixin = $req->get('param2', "装B君");
         $avatar = $req->get('avatar', "");
-        $type = $req->get('param3', "屌丝10块版");
+        $type = $req->get('param4', "屌丝10块版");
 
         switch ($type)
         {

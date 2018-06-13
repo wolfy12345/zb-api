@@ -26,12 +26,12 @@ class Xrqs
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('param1', "高手");
+        $name = $req->get('param2', "高手");
         $avatar = $req->get('avatar', "");
-        $select1 = $req->get('param2', "高手");
-        $lianxiq = $req->get('param4', "高手");
-        $lianxi = $req->get('param5', "高手");
-        $age = $req->get('param3', "100");
+        $select1 = $req->get('param3', "高手");
+        $lianxiq = $req->get('param5', "高手");
+        $lianxi = $req->get('param6', "高手");
+        $age = $req->get('param4', "100");
         $type = 2;
         $im = imagecreatetruecolor(622, 766);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/xrqs/main.jpg');

@@ -28,6 +28,21 @@ class Content extends Controller
         return json(['data' => ['list' => $list->getCollection(), 'page' => $list->currentPage(), 'total' => $list->total()], 'code' => 200]);
     }
 
+    public function getTestedList(Request $req)
+    {
+        $img_url = Config::get("img_host");
+        $testedList = $req->param('testedList');
+        $testedListArr = json_decode($testedList, true);
+
+        $zbContent = new ZbContent();
+        $list = $zbContent->field("content_id, title, img_icon, content, name, page_type, take_num")->whereIn('content_id', $testedListArr)->order('take_num ' . SORT_ASC)->limit(3)->select();
+        $list->each(function ($item) use ($img_url) {
+            $item->img_icon = $img_url . $item->img_icon;
+        });
+
+        return json(['data' => ['list' => $list], 'code' => 200]);
+    }
+
     public function getRecommendList()
     {
         $img_url = Config::get("img_host");

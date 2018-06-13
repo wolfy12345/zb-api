@@ -26,8 +26,8 @@ class Wzry
     public function image(Request $req)
     {
         header("content-type:image/png");
-        $name = $req->get('param1', "装B高手");
-        $avatar = $req->get('avatar', "2.jpeg");
+        $name = $req->get('param2', "装B高手");
+        $avatar = $req->get('avatar', "");
         $type = 2;
         $im = imagecreatetruecolor(1500, 844);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/wzry/bg.jpg');

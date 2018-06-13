@@ -15,9 +15,7 @@ class Jzkys
      */
     public function index()
     {
-        $this->data['title'] = '急诊科医生';
-
-        $this->render('index', $this->data);
+        echo "<img src='http://api.zb.com//play/gaokaoqian/image?param1=111&param2=所向披靡&param3=心想事成&param4=分数很高&' />";exit;
     }
 
     /**
