@@ -28,6 +28,7 @@ class Mxwjld
         $name = $req->get('param1', "高手");
         $mxname =$req->get('param2', "热巴");
         $b = $req->get('param3', "，我睡不着，想你了");
+        $b = str_replace("xxx", "", $b);
         $im = imagecreatetruecolor(720, 1280);
         $bg = imagecreatefromjpeg(IA_ROOT.'/example/mxwjld/33.jpg');
         $black = imagecolorallocate($im, 55, 55, 55);
